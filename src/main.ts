@@ -7,6 +7,7 @@ import { ColorComponent } from "./components/color-component";
 import { Name } from "./components/name";
 import { Color } from "./components/color";
 import { Position } from "./components/position";
+import { Velocity } from "./components/velocity";
 
 class App {
   public SampleComponent = SampleComponent;
@@ -26,7 +27,7 @@ class App {
 
   public initialize() {
     // Make sure components are bundled and run (need to make this look better)
-    [new Name(), new Color(), new Position()];
+    [new Name(), new Color(), new Position(), new Velocity()];
 
     const entities = [
       Entity.create({
