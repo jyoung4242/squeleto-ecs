@@ -11,7 +11,7 @@ const model = {
 };
 
 const template = `
-    <div>  
+    <div class="app">  
         <\${SampleComponent === compState}>        
     </div>
 `;
