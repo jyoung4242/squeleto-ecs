@@ -1,16 +1,16 @@
 import { Entity } from "./entity";
 
 export class Component {
-  public static components: Record<string, any> = {};
+  public static components: Record<string, Component> = {};
 
   public entity!: Entity;
 
-  public constructor(private name: string, private type: unknown, private assignValue = false) {
+  public constructor(private name: string, private type: Component, private assignValue = false) {
     Component.components[name] = type;
   }
 
   public static assignTo(entity: Entity, name: string, data: unknown): void {
-    const component = name != null ? new Component.components[name] : new (this as any)();
+    const component = name != null ? new (Component.components[name] as any) : new (this as any)();
     component.entity = entity;
     component.define(data);
     Object.assign(entity, { [component.name]: component.assignValue ? component.value : component });
